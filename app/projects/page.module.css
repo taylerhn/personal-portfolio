@@ -1,0 +1,186 @@
+.main {
+  min-height: 100vh;
+  padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 8vw, 6rem) 6rem;
+}
+
+.headerRow {
+  max-width: 1080px;
+  margin: 0 auto clamp(3rem, 5vw, 4.5rem);
+}
+
+.sectionLabel {
+  font-family: var(--font-hand);
+  font-size: 1.4rem;
+  color: var(--blue-pen);
+  display: inline-block;
+  transform: rotate(-1.5deg);
+}
+
+.title {
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  letter-spacing: -0.02em;
+  margin-top: 2px;
+  padding-bottom: 6px;
+  width: fit-content;
+}
+
+.titleUnderline {
+  max-width: 300px;
+}
+
+.subtitle {
+  position: relative;
+  font-family: var(--font-hand);
+  font-size: 1.4rem;
+  color: var(--ink-soft);
+  margin-top: 14px;
+  width: fit-content;
+  transform: rotate(var(--tilt-3));
+}
+
+.grid {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: clamp(2rem, 3.5vw, 3rem) clamp(1.6rem, 3vw, 2.4rem);
+}
+
+.cardLink {
+  display: block;
+}
+
+.card {
+  position: relative;
+  height: 100%;
+}
+
+/* kraft rip sticking out behind the torn page */
+.cardBacking {
+  position: absolute;
+  inset: -7px;
+  background: var(--kraft);
+  clip-path: var(--torn-a);
+  transform: rotate(1.1deg);
+  filter: drop-shadow(0 4px 6px rgba(26, 26, 46, 0.16));
+}
+
+.cardPaper {
+  position: relative;
+  height: 100%;
+  background: var(--paper-warm);
+  padding: 34px 24px 24px 46px;
+  /* drop-shadow instead of box-shadow — follows the torn clip shape */
+  filter: drop-shadow(0 3px 5px rgba(26, 26, 46, 0.12));
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  /* torn top edge — this page got ripped out of the spiral (px depths so
+     the rough border below never gets clipped, whatever the card height) */
+  clip-path: polygon(
+    0 9px, 5% 2px, 10% 11px, 15% 0, 21% 9px, 27% 2px, 33% 11px, 39% 4px,
+    45% 11px, 51% 0, 57% 9px, 63% 2px, 69% 11px, 75% 4px, 81% 11px, 87% 2px,
+    93% 9px, 100% 4px, 100% 100%, 0 100%
+  );
+  transition: box-shadow 0.2s ease;
+}
+
+.card:hover .cardPaper {
+  filter: drop-shadow(0 10px 14px rgba(26, 26, 46, 0.2));
+}
+
+.cardPolaroid {
+  position: relative;
+  width: 82%;
+  align-self: center;
+  background: #fff;
+  padding: 8px 8px 6px;
+  box-shadow: 0 4px 12px rgba(26, 26, 46, 0.15);
+  margin-top: 6px;
+}
+
+.cardPolaroidPhoto {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: var(--paper);
+  overflow: hidden;
+}
+
+.cardPolaroidEmpty {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  border: 2px dashed var(--pencil-shadow);
+  font-family: var(--font-hand);
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+}
+
+/* red margin rule, like a real notebook page */
+.marginLine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 34px;
+  width: 1.5px;
+  background: rgba(230, 57, 70, 0.35);
+}
+
+.cardFigure {
+  position: absolute;
+  top: 24px;
+  right: 22px;
+}
+
+.cardTitle {
+  font-size: 1.45rem;
+  letter-spacing: -0.01em;
+  padding-right: 52px;
+}
+
+.cardDesc {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  flex: 1;
+}
+
+.stackRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  color: var(--ink);
+  background: #fff;
+  border: 1.4px solid var(--ink);
+  padding: 2px 9px;
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+}
+
+.tag:nth-child(2n) {
+  transform: rotate(-1.2deg);
+}
+
+.readMore {
+  font-family: var(--font-hand);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--red-pen);
+  transform: rotate(-1deg);
+  width: fit-content;
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+}

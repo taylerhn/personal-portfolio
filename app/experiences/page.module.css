@@ -1,0 +1,199 @@
+.main {
+  min-height: 100vh;
+  padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 8vw, 6rem) 6rem;
+}
+
+.headerRow {
+  max-width: 980px;
+  margin: 0 auto clamp(3rem, 5vw, 4.5rem);
+}
+
+.sectionLabel {
+  font-family: var(--font-hand);
+  font-size: 1.4rem;
+  color: var(--blue-pen);
+  display: inline-block;
+  transform: rotate(-1.5deg);
+}
+
+.title {
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  letter-spacing: -0.02em;
+  margin-top: 2px;
+  padding-bottom: 6px;
+  width: fit-content;
+}
+
+.titleUnderline {
+  max-width: 360px;
+}
+
+.subtitle {
+  font-family: var(--font-hand);
+  font-size: 1.4rem;
+  color: var(--ink-soft);
+  margin-top: 14px;
+  width: fit-content;
+  transform: rotate(var(--tilt-3));
+}
+
+/* ─── TIMELINE ──────────────────────────────────────────────── */
+.timeline {
+  position: relative;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 70px 0 30px;
+}
+
+.lineColumn {
+  position: absolute;
+  left: 176px;
+  top: 0;
+  bottom: 0;
+  width: 12px;
+}
+
+.climberTrack {
+  position: sticky;
+  top: 38vh;
+  margin-left: -21px;
+  width: fit-content;
+}
+
+.climber {
+  filter: drop-shadow(2px 3px 2px rgba(26, 26, 46, 0.15));
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  gap: 26px;
+  align-items: start;
+}
+
+.itemLeft {
+  position: relative;
+  padding-top: 24px;
+}
+
+.dates {
+  display: block;
+  font-family: var(--font-hand);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--blue-pen);
+  text-align: right;
+  padding-right: 82px;
+  transform: rotate(-1deg);
+}
+
+.dotWrap {
+  position: absolute;
+  left: 171px;
+  top: 24px;
+}
+
+/* ─── TORN PAPER CARD ───────────────────────────────────────── */
+.card {
+  position: relative;
+  padding: 32px 28px 24px;
+}
+
+.cardHeader {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.company {
+  position: relative;
+  font-size: 1.4rem;
+  letter-spacing: -0.01em;
+}
+
+.team {
+  font-family: var(--font-hand);
+  font-size: 1.15rem;
+  color: var(--red-pen);
+  transform: rotate(-1deg);
+  display: inline-block;
+}
+
+.role {
+  position: relative;
+  font-family: var(--font-hand);
+  font-weight: 700;
+  font-size: 1.45rem;
+  color: var(--ink-soft);
+  margin-top: 12px;
+}
+
+.desc {
+  position: relative;
+  font-size: 0.93rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  margin-top: 6px;
+}
+
+.roleList {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 14px;
+}
+
+.roleRowHeader {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.roleTitle {
+  font-family: var(--font-hand);
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: var(--ink);
+}
+
+.roleDates {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+
+/* ─── RESPONSIVE ────────────────────────────────────────────── */
+@media (max-width: 760px) {
+  .lineColumn {
+    left: 8px;
+  }
+
+  .item {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding-left: 44px;
+  }
+
+  .itemLeft {
+    padding-top: 0;
+  }
+
+  .dates {
+    text-align: left;
+    padding-right: 0;
+  }
+
+  .dotWrap {
+    left: -41px;
+    top: 2px;
+  }
+}

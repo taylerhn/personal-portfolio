@@ -1,0 +1,352 @@
+.main {
+  min-height: 100vh;
+  padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 6vw, 5rem) 6rem;
+}
+
+.headerRow {
+  max-width: 900px;
+  margin: 0 auto clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.sectionLabel {
+  font-family: var(--font-hand);
+  font-size: 1.4rem;
+  color: var(--blue-pen);
+  display: inline-block;
+  transform: rotate(-1.5deg);
+}
+
+.title {
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  letter-spacing: -0.02em;
+  margin-top: 2px;
+  padding-bottom: 6px;
+  width: fit-content;
+}
+
+.titleUnderline {
+  max-width: 340px;
+}
+
+/* ─── ALBUM SCENE ───────────────────────────────────────────── */
+.albumScene {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.sceneFigure {
+  position: absolute;
+  top: -66px;
+  right: 6%;
+  z-index: 6;
+}
+
+.albumBook {
+  position: relative;
+  /* the 3D stage — cover and pages both hinge inside this */
+  perspective: 1700px;
+  min-height: 420px;
+}
+
+/* ─── COVER ─────────────────────────────────────────────────── */
+.albumCover {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: var(--kraft);
+  background-image:
+    linear-gradient(to right, rgba(26, 26, 46, 0.14) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(26, 26, 46, 0.14) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
+  border: none;
+  cursor: pointer;
+  clip-path: var(--torn-b);
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  /* darker hinge edge, like a worn spine */
+  box-shadow: inset 26px 0 34px -22px rgba(26, 26, 46, 0.45);
+}
+
+.coverTitle {
+  font-family: var(--font-hand);
+  font-weight: 700;
+  font-size: clamp(3.4rem, 9vw, 5.4rem);
+  line-height: 1;
+  color: var(--ink);
+  transform: rotate(-3deg);
+}
+
+.coverSubtitle {
+  font-family: var(--font-hand);
+  font-size: 1.35rem;
+  color: var(--ink-soft);
+  transform: rotate(-1.5deg);
+}
+
+.coverFigure {
+  position: absolute;
+  bottom: 26px;
+  right: 8%;
+}
+
+.coverHint {
+  position: absolute;
+  bottom: 20px;
+  left: 8%;
+  font-family: var(--font-hand);
+  font-size: 1.2rem;
+  color: var(--red-pen);
+  transform: rotate(-2deg);
+}
+
+/* ─── ALBUM PAGE ────────────────────────────────────────────── */
+.albumPage {
+  position: relative;
+  padding: clamp(24px, 4vw, 44px);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.spineShadow {
+  position: absolute;
+  inset: 0;
+  clip-path: var(--torn-b);
+  background: linear-gradient(to right, rgba(26, 26, 46, 0.14), transparent 9%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.photoGrid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(14px, 3vw, 30px) clamp(10px, 2.5vw, 24px);
+}
+
+/* ─── PHOTO CELL ────────────────────────────────────────────── */
+.photoCell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: none;
+  padding: 7px 7px 3px;
+  box-shadow: 0 4px 12px rgba(26, 26, 46, 0.16);
+  cursor: zoom-in;
+  font-family: inherit;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.photoCell:hover,
+.photoCell:focus-visible {
+  transform: rotate(0deg) scale(1.05) !important; /* overrides the inline tilt */
+  box-shadow: 0 10px 24px rgba(26, 26, 46, 0.22);
+  z-index: 3;
+}
+
+.photoCell:focus-visible {
+  outline: 2.5px dashed var(--red-pen);
+  outline-offset: 4px;
+}
+
+.photoFrame {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+.photoCaption {
+  display: block;
+  text-align: center;
+  font-family: var(--font-hand);
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  padding: 3px 0 4px;
+  min-height: 28px;
+}
+
+/* kraft corner pockets holding the photo down */
+.cornerMount {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: var(--kraft);
+  box-shadow: 0 1px 2px rgba(26, 26, 46, 0.2);
+  z-index: 3;
+}
+
+.cornerTL { top: -4px; left: -4px; clip-path: polygon(0 0, 100% 0, 0 100%); }
+.cornerTR { top: -4px; right: -4px; clip-path: polygon(0 0, 100% 0, 100% 100%); }
+.cornerBL { bottom: -4px; left: -4px; clip-path: polygon(0 0, 0 100%, 100% 100%); }
+.cornerBR { bottom: -4px; right: -4px; clip-path: polygon(100% 0, 0 100%, 100% 100%); }
+
+/* ─── PAGE CONTROLS ─────────────────────────────────────────── */
+.pageControls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+  margin-top: 30px;
+}
+
+.pageIndicator {
+  font-family: var(--font-hand);
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: var(--ink);
+  transform: rotate(-1deg);
+  min-width: 130px;
+  text-align: center;
+}
+
+.arrowBtn {
+  background: none;
+  border: none;
+  padding: 6px;
+  color: var(--red-pen);
+  cursor: pointer;
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.arrowBtn:hover:not(:disabled) {
+  transform: scale(1.15);
+  color: var(--ink);
+}
+
+.arrowBtn:disabled {
+  color: var(--pencil-shadow);
+  cursor: default;
+}
+
+.arrowBtn:focus-visible {
+  outline: 2.5px dashed var(--red-pen);
+  outline-offset: 3px;
+}
+
+/* ─── LIGHTBOX ──────────────────────────────────────────────── */
+.lightboxOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(6px, 2vw, 24px);
+  padding: clamp(12px, 3vw, 40px);
+  /* dark paper: near-black ink wash with the faint grid still showing */
+  background-color: rgba(20, 20, 36, 0.93);
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
+}
+
+.lightboxOverlay .arrowBtn {
+  color: var(--paper);
+}
+
+.lightboxOverlay .arrowBtn:hover:not(:disabled) {
+  color: var(--highlighter);
+}
+
+.closeBtn {
+  position: absolute;
+  top: 22px;
+  right: 26px;
+  background: none;
+  border: none;
+  padding: 8px;
+  color: var(--paper);
+  cursor: pointer;
+  transition: transform 0.15s ease, color 0.15s ease;
+  z-index: 2;
+}
+
+.closeBtn:hover {
+  transform: rotate(8deg) scale(1.12);
+  color: var(--red-pen);
+}
+
+.closeBtn:focus-visible {
+  outline: 2.5px dashed var(--highlighter);
+  outline-offset: 3px;
+}
+
+.lightboxFrame {
+  background: #fff;
+  padding: 14px 14px 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  max-width: min(1000px, 88vw);
+  width: 100%;
+  margin: 0;
+}
+
+.lightboxImage {
+  position: relative;
+  width: 100%;
+  height: min(66vh, 640px);
+  background: var(--paper);
+}
+
+.lightboxCaption {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 14px;
+  font-family: var(--font-hand);
+  font-size: 1.35rem;
+  color: var(--ink);
+  padding: 8px 0 4px;
+}
+
+.lightboxCount {
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+}
+
+.lightboxNavLeft,
+.lightboxNavRight {
+  flex-shrink: 0;
+}
+
+/* ─── RESPONSIVE ────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .albumBook {
+    min-height: 300px;
+  }
+
+  .photoCaption {
+    font-size: 0.85rem;
+    min-height: 20px;
+  }
+
+  .cornerMount {
+    width: 13px;
+    height: 13px;
+  }
+
+  .sceneFigure {
+    display: none;
+  }
+
+  .lightboxNavLeft,
+  .lightboxNavRight {
+    position: absolute;
+    bottom: 18px;
+    z-index: 2;
+  }
+
+  .lightboxNavLeft { left: 22%; }
+  .lightboxNavRight { right: 22%; }
+}

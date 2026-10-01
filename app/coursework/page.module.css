@@ -1,0 +1,261 @@
+.main {
+  min-height: 100vh;
+  padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 8vw, 6rem) 6rem;
+}
+
+/* ─── HERO ──────────────────────────────────────────────────── */
+.hero {
+  max-width: 980px;
+  margin: 0 auto clamp(3rem, 5vw, 4.5rem);
+}
+
+.eyebrow {
+  font-family: var(--font-hand);
+  font-size: 1.35rem;
+  color: var(--blue-pen);
+  display: inline-block;
+  transform: rotate(-1.5deg);
+}
+
+.pageTitle {
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  letter-spacing: -0.02em;
+  margin-top: 2px;
+  padding-bottom: 6px;
+  width: fit-content;
+}
+
+.titleUnderline {
+  max-width: 340px;
+}
+
+.pageSubtitle {
+  font-size: 1.1rem;
+  color: var(--ink);
+  margin-top: 16px;
+  width: fit-content;
+}
+
+/* ─── SECTION SHELL ─────────────────────────────────────────── */
+.section {
+  padding: clamp(2rem, 4vw, 3rem) 0;
+}
+
+.sectionInner {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.sectionHeader {
+  width: fit-content;
+  margin-bottom: 36px;
+  transform: rotate(var(--tilt-3));
+}
+
+.sectionLabel {
+  font-family: var(--font-hand);
+  font-size: 1.35rem;
+  color: var(--blue-pen);
+  display: block;
+  margin-bottom: -4px;
+}
+
+.sectionTitle {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  letter-spacing: -0.02em;
+  padding-bottom: 6px;
+}
+
+/* ─── COURSE LIST ───────────────────────────────────────────── */
+.courseList {
+  display: flex;
+  flex-direction: column;
+}
+
+.courseItem {
+  border-bottom: 2px dashed var(--pencil-shadow);
+}
+
+.courseItemOpen {
+  background: rgba(255, 253, 245, 0.9);
+}
+
+.courseHeader {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 100px 1fr auto 30px;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+}
+
+.courseHeader:hover .courseName {
+  color: var(--red-pen);
+}
+
+.courseCode {
+  font-family: var(--font-hand);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--red-pen);
+  transform: rotate(-1deg);
+}
+
+.courseName {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--ink);
+  transition: color 0.15s ease;
+}
+
+.courseSem {
+  font-family: var(--font-hand);
+  font-size: 1.15rem;
+  color: var(--blue-pen);
+  white-space: nowrap;
+}
+
+.courseChevron {
+  font-family: var(--font-hand);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--ink-soft);
+  display: inline-block;
+  text-align: center;
+}
+
+.courseBody {
+  padding: 0 10px 22px 128px;
+}
+
+.courseBody p {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--ink-soft);
+  border-left: 2.5px solid var(--blue-pen);
+  padding-left: 18px;
+}
+
+/* ─── ACTIVITIES ────────────────────────────────────────────── */
+.activityGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.activityCard {
+  position: relative;
+  padding: 32px 28px 26px;
+}
+
+.activityPeriod {
+  position: relative;
+  font-family: var(--font-hand);
+  font-size: 1.2rem;
+  color: var(--blue-pen);
+  display: inline-block;
+  transform: rotate(-1deg);
+}
+
+.activityName {
+  position: relative;
+  font-size: 1.35rem;
+  letter-spacing: -0.01em;
+  margin-top: 4px;
+}
+
+.activityRole {
+  position: relative;
+  font-family: var(--font-hand);
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--red-pen);
+  display: inline-block;
+  transform: rotate(-1deg);
+  margin-top: 2px;
+}
+
+.activityDesc {
+  position: relative;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin-top: 12px;
+}
+
+.activityPhotos {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.activityPhotoWrap {
+  background: #fff;
+  padding: 8px 8px 3px;
+  box-shadow: 0 4px 12px rgba(26, 26, 46, 0.15);
+  width: 132px;
+}
+
+.activityPhoto {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+.activityPhotoCaption {
+  display: block;
+  text-align: center;
+  font-family: var(--font-hand);
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  padding: 3px 0 4px;
+}
+
+.pageEndFigure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  margin-top: clamp(3rem, 5vw, 4rem);
+  font-family: var(--font-hand);
+  font-size: 1.3rem;
+  color: var(--ink-soft);
+}
+
+/* ─── RESPONSIVE ────────────────────────────────────────────── */
+@media (max-width: 700px) {
+  .courseHeader {
+    grid-template-columns: 74px 1fr 26px;
+    gap: 10px;
+  }
+
+  .courseSem {
+    display: none;
+  }
+
+  .courseCode {
+    font-size: 1.2rem;
+  }
+
+  .courseName {
+    font-size: 0.9rem;
+  }
+
+  .courseBody {
+    padding-left: 10px;
+  }
+
+  .activityGrid {
+    grid-template-columns: 1fr;
+  }
+}

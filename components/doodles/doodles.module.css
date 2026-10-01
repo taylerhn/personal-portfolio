@@ -1,0 +1,40 @@
+.tornLayers {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.tornBack {
+  position: absolute;
+  clip-path: var(--torn-a);
+  filter: drop-shadow(0 4px 6px rgba(26, 26, 46, 0.18));
+}
+
+.tornFront {
+  position: absolute;
+  inset: 0;
+  clip-path: var(--torn-b);
+  filter: drop-shadow(0 2px 3px rgba(26, 26, 46, 0.12));
+}
+
+.washiTape {
+  position: absolute;
+  height: 26px;
+  /* torn tape ends */
+  clip-path: polygon(
+    2% 0, 98% 4%, 100% 22%, 97% 46%, 100% 68%, 98% 100%,
+    3% 96%, 0 74%, 2% 48%, 0 26%
+  );
+  /* faint stripes so it reads as tape, not a paint smear */
+  background-image: repeating-linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0.25) 0px,
+    rgba(255, 255, 255, 0.25) 5px,
+    transparent 5px,
+    transparent 11px
+  );
+  box-shadow: 0 1px 3px rgba(26, 26, 46, 0.12);
+  pointer-events: none;
+  z-index: 3;
+}

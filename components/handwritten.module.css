@@ -1,0 +1,32 @@
+.measure,
+.letter {
+  font-family: var(--font-hand);
+  font-weight: 700;
+}
+
+.measure {
+  visibility: hidden;
+}
+
+.letter {
+  fill-opacity: 0;
+  stroke-width: 1.4;
+  /* larger than any Caveat glyph's outline length, so every letter fully traces */
+  stroke-dasharray: 900;
+  stroke-dashoffset: 900;
+  animation-name: traceStroke, inkFill;
+  animation-fill-mode: forwards, forwards;
+  animation-timing-function: ease-in-out, ease;
+}
+
+@keyframes traceStroke {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes inkFill {
+  to {
+    fill-opacity: 1;
+  }
+}
