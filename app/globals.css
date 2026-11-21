@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 :root {
   /* notebook palette */
   --paper: #f8f8ff;
   --paper-warm: #fffdf5;          /* torn scraps, notebook pages */
-  --grid-line: rgba(90, 120, 170, 0.13);
+  --grid-line: rgba(90, 120, 170, 0.08);
   --ink: #1a1a2e;
   --ink-soft: #44445c;
   --red-pen: #e63946;
@@ -31,9 +31,7 @@
     1% 87%, 0% 74%, 1.5% 61%, 0% 48%, 1.5% 35%, 0% 22%, 1% 10%
   );
 
-  --font-hand: 'Caveat', cursive;
   --font-body: 'Space Grotesk', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
 
   /* controlled chaos — dialed down on mobile */
   --tilt-1: -2.5deg;
@@ -61,6 +59,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 7rem;
 }
 
 body {
@@ -102,6 +101,11 @@ a {
   text-decoration: none;
 }
 
+:focus-visible {
+  outline: 2px solid var(--blue-pen);
+  outline-offset: 4px;
+}
+
 img {
   max-width: 100%;
   display: block;
@@ -112,11 +116,6 @@ h1, h2, h3, h4 {
   font-weight: 700;
   line-height: 1.1;
   color: var(--ink);
-}
-
-/* handwriting utility — annotations, captions, margin notes */
-.hand {
-  font-family: var(--font-hand);
 }
 
 /* highlighter streak behind important text, like a real yellow marker */
@@ -134,4 +133,14 @@ h1, h2, h3, h4 {
   border-radius: 0.3em 0.5em 0.4em 0.4em;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
+}
+
+.page-subtitle {
+  position: relative;
+  font-family: var(--font-body);
+  font-size: 1.4rem;
+  color: var(--ink-soft);
+  margin-top: 14px;
+  width: fit-content;
+  transform: rotate(var(--tilt-3));
 }

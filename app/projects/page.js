@@ -5,27 +5,15 @@ import Image from 'next/image';
 import styles from './page.module.css';
 import { motion } from 'framer-motion';
 import { projects } from './data';
-import StickFigure from '../../components/StickFigure';
 import WashiTape from '../../components/doodles/WashiTape';
 import { RoughBox, RoughUnderline } from '../../components/doodles/rough';
 
-// A different little guy presents each card so the page feels populated
-const cardPoses = ['point', 'present', 'wave', 'think'];
 const tapeTints = ['yellow', 'blue', 'red', 'plain'];
 
 export default function ProjectsPage() {
   return (
     <main className={styles.main}>
       <div className={styles.headerRow}>
-        <motion.span
-          className={styles.sectionLabel}
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.4 }}
-        >
-          
-        </motion.span>
-
         <motion.h1
           className={styles.title}
           initial={{ opacity: 0, y: 24 }}
@@ -37,7 +25,7 @@ export default function ProjectsPage() {
         <RoughUnderline double color="var(--red-pen)" className={styles.titleUnderline} delay={0.4} />
 
         <motion.p
-          className={styles.subtitle}
+          className="page-subtitle"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
@@ -63,13 +51,6 @@ export default function ProjectsPage() {
                 <RoughBox color="var(--ink)" strokeWidth={1.8} inset={13} drawIn delay={(index % 3) * 0.12} />
                 <span className={styles.marginLine} aria-hidden />
 
-                <StickFigure
-                  pose={cardPoses[index % cardPoses.length]}
-                  size={46}
-                  strokeWidth={5}
-                  className={styles.cardFigure}
-                />
-
                 {/* polaroid preview — drops in automatically once project.image is set */}
                 <div
                   className={styles.cardPolaroid}
@@ -86,7 +67,7 @@ export default function ProjectsPage() {
                       <Image src={project.image} alt={project.title} fill style={{ objectFit: 'cover' }} />
                     ) : (
                       <div className={styles.cardPolaroidEmpty}>
-                        <span>screenshot soon</span>
+                        <span>Photo coming soon</span>
                       </div>
                     )}
                   </div>
@@ -101,7 +82,7 @@ export default function ProjectsPage() {
                   ))}
                 </div>
 
-                <span className={styles.readMore}>read the full page →</span>
+                <span className={styles.readMore}>View project →</span>
               </div>
             </motion.article>
           </Link>

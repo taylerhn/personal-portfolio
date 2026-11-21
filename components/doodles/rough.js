@@ -23,7 +23,7 @@ const drawInVariants = {
 };
 
 /** Measures an element with ResizeObserver. Returns [ref, { width, height }]. */
-export function useElementSize() {
+function useElementSize() {
   const ref = useRef(null);
   const [size, setSize] = useState({ width: 0, height: 0 });
 
@@ -160,48 +160,6 @@ export function RoughUnderline({
               delay={delay + 0.15}
             />
           )}
-        </svg>
-      )}
-    </div>
-  );
-}
-
-/**
- * Rough ellipse scribbled around its parent's content, like circling a word
- * on a page. Parent needs position: relative.
- */
-export function RoughCircleMark({
-  color = 'var(--red-pen)',
-  strokeWidth = 2,
-  seed,
-  drawIn = true,
-  delay = 0,
-}) {
-  const [ref, { width, height }] = useElementSize();
-  const stableSeed = useSeed(seed);
-  // The ellipse overshoots the content box so it reads as a loose scribble.
-  const padX = width * 0.16 + 6;
-  const padY = height * 0.28 + 2;
-
-  return (
-    <div ref={ref} aria-hidden style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
-      {width > 0 && (
-        <svg
-          width={width}
-          height={height}
-          style={{ overflow: 'visible', display: 'block' }}
-        >
-          <RoughPaths
-            drawable={generator.ellipse(width / 2, height / 2, width + padX, height + padY, {
-              roughness: 1.4,
-              bowing: 2,
-              seed: stableSeed,
-            })}
-            color={color}
-            strokeWidth={strokeWidth}
-            drawIn={drawIn}
-            delay={delay}
-          />
         </svg>
       )}
     </div>

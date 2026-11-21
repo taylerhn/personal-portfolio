@@ -6,7 +6,7 @@ import ScrollWalker from '../components/ScrollWalker';
 export const metadata = {
   title: 'Tayler Nguyen — EECS @ Berkeley',
   description:
-    'Personal portfolio of Tayler Hau Nguyen, software engineer and community leader studying EECS at UC Berkeley. Drawn in the margins of a lecture notebook.',
+    'I’m Tayler Nguyen, an EECS student at UC Berkeley. Here’s what I’ve built, what I’m learning, and a few photos along the way.',
 };
 
 export default function RootLayout({ children }) {

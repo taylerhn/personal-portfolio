@@ -1,24 +1,13 @@
-/**
- * THE photo album manifest — the only file to edit when adding photos.
- *
- * 1. Drop your image into  public/photos/
- * 2. Add an entry here:    { src: '/photos/my-shot.jpg', alt: '...', caption: '...' }
- *
- * Order here = order in the album. 9 photos per album page; new pages appear
- * automatically. `caption` is optional and shows in Caveat under the photo.
- * The placeholder entries below reuse three sample images — replace freely.
- */
+// Album order follows this list. Add new images under public/photos and use
+// their public URL here. Existing site photos can use their current paths.
 export const photos = [
-  { src: '/photos/placeholder-1.jpg', alt: 'Placeholder photo', caption: 'the bay' },
-  { src: '/photos/placeholder-2.jpg', alt: 'Placeholder photo', caption: 'build night' },
-  { src: '/photos/placeholder-3.jpg', alt: 'Placeholder photo', caption: 'field work' },
-  { src: '/photos/placeholder-2.jpg', alt: 'Placeholder photo', caption: 'the crew' },
-  { src: '/photos/placeholder-1.jpg', alt: 'Placeholder photo', caption: 'golden hour' },
-  { src: '/photos/placeholder-3.jpg', alt: 'Placeholder photo', caption: 'campus' },
-  { src: '/photos/placeholder-1.jpg', alt: 'Placeholder photo', caption: 'lab hours' },
-  { src: '/photos/placeholder-3.jpg', alt: 'Placeholder photo', caption: 'somewhere loud' },
-  { src: '/photos/placeholder-2.jpg', alt: 'Placeholder photo', caption: 'day one' },
-  { src: '/photos/placeholder-3.jpg', alt: 'Placeholder photo', caption: 'good light' },
-  { src: '/photos/placeholder-1.jpg', alt: 'Placeholder photo', caption: 'the walk home' },
-  { src: '/photos/placeholder-2.jpg', alt: 'Placeholder photo', caption: 'post-deadline' },
+  { src: '/photos/IMG_2667.PNG', alt: 'Group photo outside by a Google Cloud sign', caption: 'at Google Cloud' },
+  { src: '/photos/bt_line.JPEG', alt: 'Three people posing outdoors with handmade signs', caption: 'with the Berkeleytime crew' },
+  { src: '/photos/yatchparty.JPG', alt: 'Group photo inside a yacht during a party', caption: 'yacht party' },
+  { src: '/home/peer_advising.JPG', alt: 'Tayler at a peer advising event', caption: 'peer advising' },
+  { src: '/home/infront_of_blackrock.png', alt: 'Tayler outside BlackRock', caption: 'at BlackRock' },
+  { src: '/home/fishing_with_dad.png', alt: 'Tayler fishing with his dad', caption: 'fishing with Dad' },
+  { src: '/home/sunglasses_smiling.JPG', alt: 'Tayler smiling in sunglasses', caption: 'in shades' },
+  { src: '/headshot.png', alt: 'Tayler smiling in a suit and tie', caption: 'my headshot' },
+  { src: '/photos/opamp.png', alt: 'Op-amp circuit wired on a breadboard with alligator clips', caption: 'op-amp circuit' },
 ];

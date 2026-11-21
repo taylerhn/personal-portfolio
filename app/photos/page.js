@@ -86,14 +86,6 @@ export default function PhotosPage() {
   return (
     <main className={styles.main}>
       <div className={styles.headerRow}>
-        <motion.span
-          className={styles.sectionLabel}
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.4 }}
-        >
-
-        </motion.span>
         <motion.h1
           className={styles.title}
           initial={{ opacity: 0, y: 24 }}
@@ -124,23 +116,25 @@ export default function PhotosPage() {
           </AnimatePresence>
         </div>
 
-        <div className={styles.pageControls}>
-          <RoughArrowButton
-            direction="left"
-            label="Previous page"
-            onClick={() => flipPage(-1)}
-            disabled={pageIndex === 0}
-          />
-          <span className={styles.pageIndicator}>
-            page {pageIndex + 1} of {pageCount}
-          </span>
-          <RoughArrowButton
-            direction="right"
-            label="Next page"
-            onClick={() => flipPage(1)}
-            disabled={pageIndex === pageCount - 1}
-          />
-        </div>
+        {pageCount > 1 && (
+          <div className={styles.pageControls}>
+            <RoughArrowButton
+              direction="left"
+              label="Previous page"
+              onClick={() => flipPage(-1)}
+              disabled={pageIndex === 0}
+            />
+            <span className={styles.pageIndicator}>
+              page {pageIndex + 1} of {pageCount}
+            </span>
+            <RoughArrowButton
+              direction="right"
+              label="Next page"
+              onClick={() => flipPage(1)}
+              disabled={pageIndex === pageCount - 1}
+            />
+          </div>
+        )}
       </div>
 
       <AnimatePresence>

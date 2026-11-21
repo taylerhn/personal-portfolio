@@ -80,6 +80,7 @@ export default function Footer() {
           <Link href="/#contact" className={styles.footerLink}>contact me</Link>
           <Link href="/projects" className={styles.footerLink}>projects</Link>
           <Link href="/experiences" className={styles.footerLink}>experiences</Link>
+          <Link href="/coursework#activities-and-societies" className={styles.footerLink}>activities &amp; societies</Link>
         </div>
 
         <div className={styles.right}>
@@ -90,7 +91,6 @@ export default function Footer() {
 
       <div className={styles.bottom}>
         <span className={styles.copyright}>© {new Date().getFullYear()} Tayler Hau Nguyen</span>
-        <span className={styles.builtWith}>:P</span>
       </div>
     </footer>
   );

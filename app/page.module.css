@@ -18,21 +18,15 @@
   align-items: center;
   gap: clamp(2rem, 5vw, 5rem);
   flex: 1;
+  width: 100%;
+  max-width: 1080px;
+  margin-inline: auto;
 }
 
 .heroText {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-}
-
-.heyNote {
-  font-family: var(--font-hand);
-  font-size: 1.6rem;
-  color: var(--blue-pen);
-  display: inline-block;
-  margin-bottom: -8px;
-  margin-left: 6px;
 }
 
 .nameLine {
@@ -50,29 +44,30 @@
 
 .heroBtns {
   display: flex;
-  gap: 22px;
+  gap: 12px;
   margin-top: 30px;
   flex-wrap: wrap;
 }
 
 .sketchBtn {
   position: relative;
-  font-family: var(--font-hand);
-  font-weight: 700;
-  font-size: 1.4rem;
+  font-weight: 600;
+  font-size: 0.95rem;
   color: var(--red-pen);
-  padding: 8px 22px;
-  transform: rotate(var(--tilt-3));
+  padding: 10px 16px;
   transition: transform 0.15s ease;
 }
 
 .sketchBtn:hover {
-  transform: rotate(0deg) scale(1.05);
+  transform: translateY(-2px);
 }
 
 .sketchBtnBlue {
   color: var(--blue-pen);
-  transform: rotate(var(--tilt-2));
+}
+
+.sketchBtnBlack {
+  color: #000;
 }
 
 .heroFigureCol {
@@ -83,27 +78,13 @@
   justify-self: center;
 }
 
-.scratchWrap {
-  position: relative;
-  display: inline-block;
-  color: var(--ink-soft);
-}
-
-.scratchLine {
-  position: absolute;
-  left: -4%;
-  top: 50%;
-  margin-top: -0.7em;
-  pointer-events: none;
-}
-
 .thisIsMe {
   display: flex;
   align-items: flex-start;
   gap: 6px;
   margin-top: -16px;
   margin-left: 40%;
-  font-family: var(--font-hand);
+  font-family: var(--font-body);
   font-size: 1.25rem;
   line-height: 1.25;
   color: var(--red-pen);
@@ -115,7 +96,7 @@
   flex-direction: column;
   align-items: center;
   gap: 0;
-  font-family: var(--font-hand);
+  font-family: var(--font-body);
   font-size: 1.3rem;
   color: var(--ink-soft);
   padding-bottom: 10px;
@@ -155,14 +136,10 @@
   transform: rotate(var(--tilt-3));
 }
 
-.sectionLabel {
-  font-family: var(--font-hand);
-  font-size: 1.35rem;
-  color: var(--blue-pen);
+.sectionHeader::before {
+  content: '';
   display: block;
   margin-bottom: -6px;
-  margin-left: 4px;
-  transform: rotate(-1deg);
 }
 
 .sectionTitle {
@@ -196,17 +173,6 @@
   margin-top: 14px;
 }
 
-.aboutMarginNote {
-  position: absolute;
-  right: -20px;
-  bottom: -30px;
-  font-family: var(--font-hand);
-  font-size: 1.25rem;
-  color: var(--blue-pen);
-  transform: rotate(-5deg);
-  white-space: nowrap;
-}
-
 .polaroidWall {
   display: flex;
   flex-wrap: wrap;
@@ -224,15 +190,6 @@
   touch-action: none;
 }
 
-.polaroidEmpty {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px dashed var(--pencil-shadow);
-}
-
 .polaroidPhoto {
   position: relative;
   width: 100%;
@@ -244,42 +201,10 @@
 .polaroidCaption {
   display: block;
   text-align: center;
-  font-family: var(--font-hand);
+  font-family: var(--font-body);
   font-size: 1.1rem;
   color: var(--ink-soft);
   padding: 4px 0 6px;
-}
-
-.stickyRow {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 26px;
-  justify-content: center;
-  margin-top: clamp(3rem, 5vw, 4.5rem);
-}
-
-.stickyNote {
-  position: relative;
-  width: 220px;
-  min-height: 175px;
-  padding: 18px 18px 52px;
-  box-shadow: 2px 5px 12px rgba(26, 26, 46, 0.14);
-  /* the peeled bottom-right corner of a real sticky note */
-  clip-path: polygon(0 0, 100% 0, 100% 88%, 88% 100%, 0 100%);
-}
-
-.stickyText {
-  font-family: var(--font-hand);
-  font-size: 1.25rem;
-  line-height: 1.35;
-  color: var(--ink);
-}
-
-.stickyFigure {
-  position: absolute;
-  right: 12px;
-  bottom: 4px;
-  opacity: 0.9;
 }
 
 /* ─── TOOLBOX ───────────────────────────────────────────────── */
@@ -297,7 +222,7 @@
 
 .toolTitle {
   position: relative;
-  font-family: var(--font-hand);
+  font-family: var(--font-body);
   font-weight: 700;
   font-size: 1.7rem;
   margin-bottom: 16px;
@@ -311,7 +236,7 @@
 }
 
 .tag {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.72rem;
   color: var(--ink);
   background: #fff;
@@ -331,19 +256,12 @@
 }
 
 /* ─── CONTACT ───────────────────────────────────────────────── */
-.contactSub {
-  font-family: var(--font-hand);
-  font-size: 1.35rem;
-  color: var(--ink-soft);
-  margin: -24px 0 40px;
-  transform: rotate(var(--tilt-3));
-}
-
 .contactStage {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 254px);
   gap: 34px 28px;
   justify-content: center;
+  margin-top: -24px;
   padding: 20px 0 30px;
 }
 
@@ -368,9 +286,9 @@
 
 .speechBubble {
   position: relative;
-  font-family: var(--font-hand);
+  font-family: var(--font-body);
   font-weight: 700;
-  font-size: 1.15rem;
+  font-size: 0.9rem;
   line-height: 1;
   color: var(--ink);
   border: 1.8px solid var(--ink);
@@ -409,13 +327,14 @@
 
 .scrapButtons {
   display: flex;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 4px 10px;
 }
 
 .scrapBtn {
-  font-family: var(--font-hand);
+  font-family: var(--font-body);
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   color: var(--blue-pen);
   background: none;
   border: none;
@@ -450,11 +369,6 @@
     grid-template-columns: 1fr;
   }
 
-  .aboutMarginNote {
-    right: 8px;
-    bottom: -32px;
-  }
-
   .toolboxGrid {
     grid-template-columns: 1fr;
   }
@@ -474,13 +388,11 @@
     font-size: 1.05rem;
   }
 
-  .stickyNote {
-    width: 100%;
-    max-width: 300px;
+  .contactStage {
+    grid-template-columns: min(100%, 300px);
   }
 
   .contactScrap {
     width: 100%;
-    max-width: 300px;
   }
 }

@@ -4,16 +4,9 @@
 }
 
 .headerRow {
+  padding-top: 1lh;
   max-width: 1080px;
   margin: 0 auto clamp(3rem, 5vw, 4.5rem);
-}
-
-.sectionLabel {
-  font-family: var(--font-hand);
-  font-size: 1.4rem;
-  color: var(--blue-pen);
-  display: inline-block;
-  transform: rotate(-1.5deg);
 }
 
 .title {
@@ -26,16 +19,6 @@
 
 .titleUnderline {
   max-width: 300px;
-}
-
-.subtitle {
-  position: relative;
-  font-family: var(--font-hand);
-  font-size: 1.4rem;
-  color: var(--ink-soft);
-  margin-top: 14px;
-  width: fit-content;
-  transform: rotate(var(--tilt-3));
 }
 
 .grid {
@@ -115,7 +98,7 @@
   justify-content: center;
   gap: 2px;
   border: 2px dashed var(--pencil-shadow);
-  font-family: var(--font-hand);
+  font-family: var(--font-body);
   font-size: 1.05rem;
   color: var(--ink-soft);
 }
@@ -130,20 +113,13 @@
   background: rgba(230, 57, 70, 0.35);
 }
 
-.cardFigure {
-  position: absolute;
-  top: 24px;
-  right: 22px;
-}
-
 .cardTitle {
   font-size: 1.45rem;
   letter-spacing: -0.01em;
-  padding-right: 52px;
 }
 
 .cardDesc {
-  font-size: 0.92rem;
+  font-size: 1rem;
   line-height: 1.65;
   color: var(--ink-soft);
   flex: 1;
@@ -156,7 +132,7 @@
 }
 
 .tag {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.66rem;
   color: var(--ink);
   background: #fff;
@@ -170,11 +146,9 @@
 }
 
 .readMore {
-  font-family: var(--font-hand);
   font-weight: 700;
-  font-size: 1.2rem;
-  color: var(--red-pen);
-  transform: rotate(-1deg);
+  font-size: 0.9rem;
+  color: var(--ink);
   width: fit-content;
 }
 

@@ -10,7 +10,7 @@
 }
 
 .backLink {
-  font-family: var(--font-hand);
+  font-family: var(--font-body);
   font-weight: 700;
   font-size: 1.35rem;
   color: var(--red-pen);
@@ -26,14 +26,6 @@
 /* ─── HERO ──────────────────────────────────────────────────── */
 .hero {
   margin-bottom: clamp(3rem, 5vw, 4.5rem);
-}
-
-.eyebrow {
-  font-family: var(--font-hand);
-  font-size: 1.35rem;
-  color: var(--blue-pen);
-  display: inline-block;
-  transform: rotate(-1.5deg);
 }
 
 .projectTitle {
@@ -71,7 +63,7 @@
 }
 
 .tag {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.7rem;
   color: var(--ink);
   background: #fff;
@@ -86,7 +78,7 @@
 
 .projectLink {
   position: relative;
-  font-family: var(--font-hand);
+  font-family: var(--font-body);
   font-weight: 700;
   font-size: 1.25rem;
   color: var(--blue-pen);
@@ -116,7 +108,7 @@
 }
 
 .sideNavLabel {
-  font-family: var(--font-hand);
+  font-family: var(--font-body);
   font-size: 1.2rem;
   color: var(--ink-soft);
   transform: rotate(-2deg);
@@ -127,7 +119,7 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  font-family: var(--font-hand);
+  font-family: var(--font-body);
   font-weight: 700;
   font-size: 1.25rem;
   color: var(--ink-soft);
@@ -160,6 +152,29 @@
   min-width: 0;
 }
 
+.presentation {
+  margin-top: 24px;
+  padding: clamp(8px, 2vw, 16px);
+  background: var(--paper-warm);
+  border: 1px solid var(--pencil-shadow);
+  border-radius: 6px;
+}
+
+.presentationFrame {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border: 0;
+}
+
+.presentationCaption {
+  margin-top: 10px;
+  text-align: right;
+  font-size: 0.9rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .sectionHeadingWrap {
   width: fit-content;
   margin-bottom: 20px;
@@ -172,7 +187,7 @@
 }
 
 .sectionSubheading {
-  font-family: var(--font-hand);
+  font-family: var(--font-body);
   font-weight: 700;
   font-size: 1.5rem;
   color: var(--blue-pen);
@@ -212,7 +227,7 @@
   gap: 8px;
   border: 2px dashed var(--pencil-shadow);
   background: var(--paper);
-  font-family: var(--font-hand);
+  font-family: var(--font-body);
   font-size: 1.25rem;
   color: var(--ink-soft);
   text-align: center;
@@ -222,7 +237,7 @@
 .imageCaption {
   display: block;
   text-align: center;
-  font-family: var(--font-hand);
+  font-family: var(--font-body);
   font-size: 1.2rem;
   color: var(--ink-soft);
   padding: 6px 0 4px;
@@ -237,7 +252,7 @@
   padding: 20px 28px;
   border: 2px dashed var(--pencil-shadow);
   border-radius: 12px 160px 14px 145px / 145px 14px 160px 12px;
-  font-family: var(--font-hand);
+  font-family: var(--font-body);
   font-size: 1.25rem;
   color: var(--ink-soft);
   transform: rotate(var(--tilt-3));
@@ -258,7 +273,7 @@
 }
 
 .featureTitle {
-  font-family: var(--font-hand);
+  font-family: var(--font-body);
   font-weight: 700;
   font-size: 1.4rem;
   margin-bottom: 8px;

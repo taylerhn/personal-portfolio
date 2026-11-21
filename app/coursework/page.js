@@ -15,75 +15,80 @@ const courses = [
     code: 'CS 61A',
     name: 'Structure and Interpretation of Computer Programs',
     semester: 'Fall 2024',
-    takeaway: 'Fundamentals of functional and object-oriented programming through Python and Scheme. Built interpreters, studied recursion, higher-order functions, and abstraction. This course fundamentally changed how I think about program structure and the relationship between data and procedures.',
+    takeaway: "I learned to use recursion in Python and Scheme and got to see how an interpreter works by building one. Working in both languages made me pay more attention to how I break up a program and what each function needs to know.",
   },
   {
     code: 'CS 61B',
     name: 'Data Structures',
     semester: 'Spring 2025',
-    takeaway: 'Deep dive into Java and core data structures — trees, graphs, hash tables, heaps, tries. Built a full file-sharing system (Gitlet) from scratch. The project-heavy format pushed me to write clean, testable code and reason carefully about time/space complexity.',
+    takeaway: "I spent a lot of time writing Java and figuring out when to reach for a tree, a graph, or a hash table. The projects gave me a chance to put those decisions into practice, including in Gitlet, where I built a small version control system.",
   },
   {
     code: 'EECS 16A',
     name: 'Designing Information Devices and Systems I',
     semester: 'Fall 2024',
-    takeaway: 'Introduced linear algebra and circuit design with applications to imaging, tomography, and machine learning. Bridging math and physical systems was eye-opening — seeing how eigendecomposition applies to real sensor arrays made abstract concepts concrete.',
+    takeaway: "This was my introduction to linear algebra and circuits. The imaging examples helped the math click for me. It was easier to see why something like eigendecomposition mattered when we were talking about measurements from real sensors.",
   },
   {
     code: 'EECS 16B',
     name: 'Designing Information Devices and Systems II',
     semester: 'Spring 2025',
-    takeaway: 'Continued into differential equations, feedback control, and signal processing. Built a voice-controlled car using SVD-based classification. This course solidified my understanding of how software and hardware co-design enables smart systems.',
+    takeaway: "We went from differential equations and feedback to building a car that responds to voice commands. Seeing SVD go from something we learned in class to a way for the car to tell commands apart was the part that stuck with me.",
   },
   {
     code: 'CS 70',
     name: 'Discrete Mathematics and Probability Theory',
     semester: 'Fall 2025',
-    takeaway: 'Covered proofs, graph theory, modular arithmetic, Markov chains, and probability. Strengthened my mathematical maturity and my ability to construct rigorous arguments — skills that show up every time I reason about algorithm correctness or system reliability.',
+    takeaway: "CS 70 made me slow down and explain why an answer was true. That came up in proofs, graph theory, and modular arithmetic, then again in probability when we had to be precise about what we were assuming.",
   },
   {
     code: 'CS 61C',
     name: 'Great Ideas in Computer Architecture',
     semester: 'Spring 2026',
-    takeaway: 'C, RISC-V assembly, pipelining, caches, virtual memory, and parallelism. Writing a CPU in hardware description language and optimizing matrix multiplication with SIMD was humbling and empowering — understanding the machine makes me a better programmer at every layer of the stack.',
+    takeaway: "I went from writing C and RISC-V assembly to building a CPU and trying to speed up matrix multiplication with SIMD. Caches and pipelining made more sense once I could connect them to what the code was asking the machine to do.",
   },
   {
     code: 'CS 186',
     name: 'Introduction to Database Systems',
     semester: 'Spring 2026',
-    takeaway: 'Relational databases, query optimization, B-trees, concurrency control, and recovery. Implementing a full query executor from scratch gave me deep respect for the engineering behind systems I had been using casually. Directly applicable to every backend project I build.',
+    takeaway: "I’d used SQL before this class, but building a query executor made me think about what happens after I hit run. B-trees, query plans, and concurrency control gave me more context for the database decisions I run into on backend projects.",
   },
   {
     code: 'CS 188',
     name: 'Introduction to Artificial Intelligence',
     semester: 'Fall 2025',
-    takeaway: 'Search algorithms, constraint satisfaction, Bayesian networks, reinforcement learning, and neural networks. Implemented Pacman agents that outperform rule-based approaches using minimax and Q-learning. Grounded my understanding of AI in principled algorithmic thinking.',
+    takeaway: "I built Pacman agents with minimax and Q-learning. It was fun to watch the agents play the same game and see how differently they made decisions. The projects helped me connect the search and reinforcement learning we covered in class to something I could watch play out.",
   },
 ];
 
 const activities = [
   {
-    name: 'Activity / Society Name',
-    role: 'Your Role',
-    period: '2024 — Present',
-    description: 'Add a brief description of your involvement, what you do in this organization, and why it matters to you. This is a great place to highlight leadership, community impact, or technical contributions.',
+    name: 'Codebase',
+    role: 'Internal Vice President, Client Developer (two projects), Mentored Developer',
+    period: '2025 — Present',
+    description: "I came to Codebase to work on projects and ended up staying for the people. After three projects, I wanted to give back as IVP. I planned retreats, pumpkin carving, cross-club socials, yacht parties, and celebrations. A lot of it came down to giving people more chances to meet each other and feel like part of the club.",
     tape: 'yellow',
-    photos: [
-      { src: '/herophoto.jpg', caption: 'caption one' },
-      { src: '/herophoto2.jpg', caption: 'caption two' },
-      { src: '/herophoto3.jpg', caption: 'caption three' },
-    ],
   },
   {
-    name: 'Activity / Society Name',
-    role: 'Your Role',
+    name: 'Berkeleytime',
+    role: 'Infrastructure Pod Lead, Infrastructure Pod Developer, Learning Pod',
     period: '2025 — Present',
-    description: 'Add a brief description of your involvement, what you do in this organization, and why it matters to you. This is a great place to highlight leadership, community impact, or technical contributions.',
+    description: "I used Berkeleytime to build my own schedule, so I already knew how much I relied on it before I joined. I started in the Learning Pod, joined the Infra Pod, and now lead it. That’s where I’ve gotten to explore production engineering and make decisions about keeping the site running for the students who use it.",
     tape: 'blue',
-    photos: [
-      { src: '/herophoto2.jpg', caption: 'caption one' },
-      { src: '/herophoto3.jpg', caption: 'caption two' },
-    ],
+  },
+  {
+    name: 'PREP',
+    role: 'Ambassador, Alumni, Scholar',
+    period: '2024 — Present',
+    description: "PREP is a community I hold near and dear to my heart. I went through the program in summer 2024 and came back as an ambassador. I put together the weekly newsletter, filmed student interviews, and helped plan workshops and activities for the wider PREP community.",
+    tape: 'red',
+  },
+  {
+    name: 'Lambda Phi Epsilon',
+    role: 'External Vice President, Technology Chair',
+    period: '2025 — Present',
+    description: "I helped recharter Lambda Phi Epsilon at Berkeley, working with the national organization and the university. I handle external affairs and social media, and I built the chapter website. There’s also a member dashboard where we can find resources and meeting notes, get reminders about what’s coming up, and customize our profiles.",
+    tape: 'plain',
   },
 ];
 
@@ -159,20 +164,22 @@ function ActivityCard({ activity, index }) {
 
       <p className={styles.activityDesc}>{activity.description}</p>
 
-      <div className={styles.activityPhotos}>
-        {activity.photos.map((photo, i) => (
-          <div
-            key={i}
-            className={styles.activityPhotoWrap}
-            style={{ transform: `rotate(${i % 2 === 0 ? -2.5 : 2}deg)` }}
-          >
-            <div className={styles.activityPhoto}>
-              <Image src={photo.src} alt={photo.caption} fill style={{ objectFit: 'cover' }} />
+      {activity.photos?.length > 0 && (
+        <div className={styles.activityPhotos}>
+          {activity.photos.map((photo, i) => (
+            <div
+              key={i}
+              className={styles.activityPhotoWrap}
+              style={{ transform: `rotate(${i % 2 === 0 ? -2.5 : 2}deg)` }}
+            >
+              <div className={styles.activityPhoto}>
+                <Image src={photo.src} alt={photo.caption} fill style={{ objectFit: 'cover' }} />
+              </div>
+              <span className={styles.activityPhotoCaption}>{photo.caption}</span>
             </div>
-            <span className={styles.activityPhotoCaption}>{photo.caption}</span>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </motion.div>
   );
 }
@@ -189,15 +196,6 @@ export default function CourseworkPage() {
 
       {/* ── HERO ───────────────────────────────────────── */}
       <section className={styles.hero}>
-        <motion.span
-          className={styles.eyebrow}
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.4 }}
-        >
-          UC Berkeley · College of Engineering · Class of 2028
-        </motion.span>
-
         <motion.h1
           className={styles.pageTitle}
           initial={{ opacity: 0, y: 28 }}
@@ -209,12 +207,12 @@ export default function CourseworkPage() {
         <RoughUnderline double color="var(--red-pen)" className={styles.titleUnderline} delay={0.4} />
 
         <motion.p
-          className={styles.pageSubtitle}
+          className="page-subtitle"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.25 }}
         >
-          <span className="highlight">B.S. Electrical Engineering and Computer Sciences</span>
+          B.S. Electrical Engineering and Computer Sciences
         </motion.p>
       </section>
 
@@ -242,7 +240,7 @@ export default function CourseworkPage() {
       </section>
 
       {/* ── ACTIVITIES ─────────────────────────────────── */}
-      <section className={styles.section}>
+      <section id="activities-and-societies" className={styles.section}>
         <div className={styles.sectionInner}>
           <motion.div
             className={styles.sectionHeader}
@@ -251,7 +249,6 @@ export default function CourseworkPage() {
             whileInView="show"
             viewport={{ once: true }}
           >
-            <span className={styles.sectionLabel}>outside the lecture hall</span>
             <h2 className={styles.sectionTitle}>Activities &amp; Societies</h2>
             <RoughUnderline double color="var(--red-pen)" />
           </motion.div>

@@ -44,9 +44,9 @@
 }
 
 .wordmark {
-  font-family: var(--font-hand);
+  font-family: var(--font-body);
   font-weight: 700;
-  font-size: 2.2rem;
+  font-size: 1.65rem;
   line-height: 1;
   color: var(--ink);
   transform: rotate(-3deg);
@@ -75,9 +75,9 @@
 
 .navLink {
   position: relative;
-  font-family: var(--font-hand);
-  font-weight: 700;
-  font-size: 1.35rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: capitalize;
   line-height: 1.1;
   color: var(--ink-soft);
   padding: 2px 4px;
@@ -101,33 +101,10 @@
   transition: opacity 0.15s ease;
 }
 
-.navLink:hover .hoverUnderline {
+.navLink:hover .hoverUnderline,
+.navLink:focus-visible .hoverUnderline,
+.active .hoverUnderline {
   opacity: 1;
-}
-
-.blogTag {
-  position: relative;
-  font-family: var(--font-hand);
-  font-weight: 400;
-  font-size: 1.25rem;
-  color: var(--ink-soft);
-  opacity: 0.65;
-  cursor: default;
-  text-decoration: line-through;
-  text-decoration-color: var(--red-pen);
-  text-decoration-thickness: 2px;
-}
-
-.soon {
-  position: absolute;
-  top: -11px;
-  right: -26px;
-  font-size: 0.85rem;
-  color: var(--red-pen);
-  text-decoration: none;
-  transform: rotate(8deg);
-  white-space: nowrap;
-  display: inline-block;
 }
 
 @media (max-width: 768px) {
@@ -137,18 +114,15 @@
   }
 
   .wordmark {
-    font-size: 1.8rem;
+    font-size: 1.35rem;
   }
 
   .nav {
-    gap: 16px;
+    gap: 6px 12px;
+    justify-content: flex-end;
   }
 
   .navLink {
-    font-size: 1.15rem;
-  }
-
-  .blogTag {
-    display: none;
+    font-size: 0.85rem;
   }
 }

@@ -25,10 +25,10 @@ export default function HandwrittenText({
 
   useEffect(() => {
     let cancelled = false;
-    // Caveat must be loaded before measuring, or offsets come from the fallback
+    // Space Grotesk must be loaded before measuring, or offsets come from the fallback
     // font. fonts.ready alone can resolve before the @import kicks off the load,
     // so request the face explicitly.
-    document.fonts.load('700 100px Caveat').then(() => document.fonts.ready).then(() => {
+    document.fonts.load('700 100px "Space Grotesk"').then(() => document.fonts.ready).then(() => {
       const el = measureRef.current;
       if (cancelled || !el) return;
       const letters = text.split('').map((char, i) => ({

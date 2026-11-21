@@ -8,14 +8,6 @@
   margin: 0 auto clamp(3rem, 5vw, 4.5rem);
 }
 
-.sectionLabel {
-  font-family: var(--font-hand);
-  font-size: 1.4rem;
-  color: var(--blue-pen);
-  display: inline-block;
-  transform: rotate(-1.5deg);
-}
-
 .title {
   font-size: clamp(2.4rem, 6vw, 3.6rem);
   letter-spacing: -0.02em;
@@ -28,26 +20,17 @@
   max-width: 360px;
 }
 
-.subtitle {
-  font-family: var(--font-hand);
-  font-size: 1.4rem;
-  color: var(--ink-soft);
-  margin-top: 14px;
-  width: fit-content;
-  transform: rotate(var(--tilt-3));
-}
-
 /* ─── TIMELINE ──────────────────────────────────────────────── */
 .timeline {
   position: relative;
   max-width: 980px;
   margin: 0 auto;
-  padding: 70px 0 30px;
+  padding: 24px 0 30px;
 }
 
 .lineColumn {
   position: absolute;
-  left: 176px;
+  left: 12px;
   top: 0;
   bottom: 0;
   width: 12px;
@@ -71,32 +54,27 @@
 }
 
 .item {
-  display: grid;
-  grid-template-columns: 230px 1fr;
-  gap: 26px;
-  align-items: start;
+  position: relative;
+  padding-left: 58px;
 }
 
-.itemLeft {
+.titleRow {
   position: relative;
-  padding-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 14px;
 }
 
 .dates {
-  display: block;
-  font-family: var(--font-hand);
-  font-weight: 700;
-  font-size: 1.2rem;
-  color: var(--blue-pen);
-  text-align: right;
-  padding-right: 82px;
-  transform: rotate(-1deg);
+  font-size: 0.88rem;
+  color: var(--ink-soft);
 }
 
 .dotWrap {
   position: absolute;
-  left: 171px;
-  top: 24px;
+  left: 7px;
+  top: 30px;
 }
 
 /* ─── TORN PAPER CARD ───────────────────────────────────────── */
@@ -105,35 +83,10 @@
   padding: 32px 28px 24px;
 }
 
-.cardHeader {
-  position: relative;
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
 .company {
   position: relative;
   font-size: 1.4rem;
   letter-spacing: -0.01em;
-}
-
-.team {
-  font-family: var(--font-hand);
-  font-size: 1.15rem;
-  color: var(--red-pen);
-  transform: rotate(-1deg);
-  display: inline-block;
-}
-
-.role {
-  position: relative;
-  font-family: var(--font-hand);
-  font-weight: 700;
-  font-size: 1.45rem;
-  color: var(--ink-soft);
-  margin-top: 12px;
 }
 
 .desc {
@@ -152,48 +105,45 @@
   margin-top: 14px;
 }
 
-.roleRowHeader {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-  flex-wrap: wrap;
+.roleRow + .roleRow {
+  border-top: 1px solid var(--pencil-shadow);
+  padding-top: 18px;
 }
 
 .roleTitle {
-  font-family: var(--font-hand);
-  font-weight: 700;
-  font-size: 1.35rem;
-  color: var(--ink);
+  font-weight: 600;
+  font-size: 1.1rem;
 }
 
-.roleDates {
-  font-size: 0.78rem;
+.roleMeta {
+  margin-top: 5px;
+  font-size: 0.88rem;
   color: var(--ink-soft);
 }
 
-/* ─── RESPONSIVE ────────────────────────────────────────────── */
+.projectLink {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 @media (max-width: 760px) {
   .lineColumn {
     left: 8px;
   }
 
   .item {
-    grid-template-columns: 1fr;
-    gap: 10px;
-    padding-left: 44px;
-  }
-
-  .itemLeft {
-    padding-top: 0;
-  }
-
-  .dates {
-    text-align: left;
-    padding-right: 0;
+    padding-left: 38px;
   }
 
   .dotWrap {
-    left: -41px;
-    top: 2px;
+    left: 3px;
+  }
+
+  .card {
+    padding-inline: 20px;
   }
 }

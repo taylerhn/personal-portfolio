@@ -43,21 +43,12 @@ export default function ProjectDetail({ project }) {
         className={styles.backRow}
       >
         <Link href="/projects" className={styles.backLink}>
-          ← back to the pile
+          ← back
         </Link>
       </motion.div>
 
       {/* Hero */}
       <section className={styles.hero}>
-        <motion.span
-          className={styles.eyebrow}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.05, duration: 0.4 }}
-        >
-          from the lab notebook
-        </motion.span>
-
         <motion.h1
           className={styles.projectTitle}
           initial={{ opacity: 0, y: 32 }}
@@ -89,18 +80,22 @@ export default function ProjectDetail({ project }) {
             ))}
           </div>
 
-          {project.link && (
+          {[
+            [project.link, 'View on GitHub'],
+            [project.devpost, 'View on Devpost'],
+          ].filter(([href]) => href).map(([href, label]) => (
             <a
-              href={project.link}
+              key={href}
+              href={href}
               target="_blank"
               rel="noopener noreferrer"
               className={styles.projectLink}
             >
-              see it on github ↗
+              {label} ↗
               <RoughBox color="var(--blue-pen)" strokeWidth={2} inset={2} />
 
             </a>
-          )}
+          ))}
         </motion.div>
       </section>
 
@@ -108,7 +103,7 @@ export default function ProjectDetail({ project }) {
 
         {/* Margin tabs */}
         <aside className={styles.sideNav}>
-          <span className={styles.sideNavLabel}>on this page:</span>
+          <span className={styles.sideNavLabel}>contents:</span>
           {SECTIONS.map(({ id, label }, i) => {
             const isActive = activeSection === id;
             return (
@@ -157,7 +152,28 @@ export default function ProjectDetail({ project }) {
               {project.overview || project.description}
             </motion.p>
 
-            <div className={styles.imageBox}>
+            {project.presentationId && (
+              <figure className={styles.presentation}>
+                <iframe
+                  className={styles.presentationFrame}
+                  src={`https://docs.google.com/presentation/d/${project.presentationId}/embed`}
+                  title={`${project.title} presentation`}
+                  loading="lazy"
+                  allowFullScreen
+                />
+                <figcaption className={styles.presentationCaption}>
+                  <a
+                    href={`https://docs.google.com/presentation/d/${project.presentationId}/edit?usp=sharing`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Open in Google Slides ↗
+                  </a>
+                </figcaption>
+              </figure>
+            )}
+
+            {!project.presentationId && <div className={styles.imageBox}>
               <WashiTape tint="yellow" rotate={-4} width={100} style={{ top: -14, left: '50%', marginLeft: -50 }} />
 
               {project.image ? (
@@ -166,11 +182,11 @@ export default function ProjectDetail({ project }) {
                 <div className={styles.imageEmpty}>
                   <StickFigure pose="think" size={64} />
 
-                  <span>screenshots coming — the artist is busy</span>
+                  <span>Photo coming soon</span>
                 </div>
               )}
-              <span className={styles.imageCaption}>{project.title.toLowerCase()}, in the wild</span>
-            </div>
+              {project.image && <span className={styles.imageCaption}>{project.title}</span>}
+            </div>}
           </section>
 
           {/* Technical Features */}

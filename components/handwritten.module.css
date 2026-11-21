@@ -1,6 +1,6 @@
 .measure,
 .letter {
-  font-family: var(--font-hand);
+  font-family: var(--font-body);
   font-weight: 700;
 }
 
@@ -11,7 +11,7 @@
 .letter {
   fill-opacity: 0;
   stroke-width: 1.4;
-  /* larger than any Caveat glyph's outline length, so every letter fully traces */
+  /* larger than the glyph outline length, so every letter fully traces */
   stroke-dasharray: 900;
   stroke-dashoffset: 900;
   animation-name: traceStroke, inkFill;

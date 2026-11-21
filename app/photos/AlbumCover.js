@@ -30,7 +30,7 @@ export default function AlbumCover({ onOpen }) {
       <WashiTape tint="yellow" rotate={44} width={110} style={{ bottom: 6, right: -24, top: 'auto' }} />
 
       <span className={styles.coverTitle}>Photos</span>
-      <span className={styles.coverSubtitle}>Heres a glimpse of my life</span>
+      <span className={styles.coverSubtitle}>a few photos from my life</span>
 
       <StickFigure pose="present" size={92} strokeWidth={4} className={styles.coverFigure} />
 

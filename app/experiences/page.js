@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import styles from './page.module.css';
 import { motion } from 'framer-motion';
 import StickFigure from '../../components/StickFigure';
@@ -15,7 +16,7 @@ const experiences = [
     role: 'SWE Summer Analyst',
     team: 'Portfolio Management',
     dates: 'Jun 2026 – Present',
-    description: 'Fixed Income.',
+    description: "I work on software for the indexed fixed-income portfolio management team.",
     tape: 'yellow',
   },
   {
@@ -24,7 +25,7 @@ const experiences = [
     role: 'Lead Software Engineer',
     team: 'Infrastructure',
     dates: 'Aug 2026 – Present',
-    description: 'Infrastructure for 50,000+ Monthly Active Users.',
+    description: "I lead the infrastructure pod that keeps Berkeleytime running for 50,000+ monthly active users.",
     tape: 'blue',
   },
   {
@@ -36,14 +37,13 @@ const experiences = [
       {
         title: 'AlloyDB Developer Experience',
         team: 'AlloyDB',
-        dates: 'Sep 2025 – Present',
-        description: 'Building tools to identify developer pain points in AlloyDB workflows.',
+        description: "I’m building tools to help pinpoint where developers get stuck when working with AlloyDB.",
       },
       {
         title: 'PostgreSQL Traffic Replay',
         team: 'AlloyDB',
-        dates: 'Sep 2025 – Present',
-        description: 'PostgreSQL traffic recording and replay for database benchmarking.',
+        description: "I helped build PGRR so engineers can record PostgreSQL traffic and replay the same workload when comparing benchmark runs.",
+        project: { slug: 'pgrr', title: 'PGRR' },
       },
     ],
   },
@@ -53,7 +53,8 @@ const experiences = [
     role: 'Software Engineer',
     team: 'Dashboard',
     dates: 'Sep 2025 – Present',
-    description: 'Building a community forum and dashboard for a nonprofit family resource center.',
+    description: "I’m working on a forum and dashboard for Lotus Bloom, a nonprofit family resource center.",
+    project: { slug: 'lotus-bloom', title: 'Lotus Bloom' },
     tape: 'plain',
   },
   {
@@ -65,18 +66,17 @@ const experiences = [
       {
         title: 'Peer Advisor',
         team: 'College of Engineering',
-        dates: 'Sep 2025 – Present',
-        description: 'Supporting engineering students through advising, mentorship, and resource referrals.',
+        description: "I meet with engineering students, talk through their questions, and help them find the right campus resources.",
       },
       {
         title: 'PREP Ambassador',
         team: 'College of Engineering',
-        description: 'Supporting engineering students from underrepresented backgrounds.',
+        description: "I help put together the PREP newsletter, film student interviews, and plan workshops and activities.",
       },
       {
         title: 'ITCS Student Technician',
         team: 'IT Client Services',
-        description: 'Supporting staff, faculty, and students with campus technology.',
+        description: "I help students, staff, and faculty troubleshoot campus technology.",
       },
     ],
   },
@@ -84,67 +84,48 @@ const experiences = [
 
 /* ─── TIMELINE ITEM ─────────────────────────────────────────── */
 function TimelineItem({ exp, index }) {
-  const isGrouped = Boolean(exp.roles);
+  const roles = exp.roles ?? [{ ...exp, title: exp.role }];
 
   return (
-    <motion.div
+    <motion.article
       className={styles.item}
-      initial={{ opacity: 0, x: -40 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      initial={{ opacity: 0, y: 8 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
-      transition={{ type: 'spring', stiffness: 100, damping: 20, delay: index * 0.05 }}
+      transition={{ duration: 0.25 }}
     >
-      <div className={styles.itemLeft}>
-        <motion.div
-          className={styles.dotWrap}
-          initial={{ scale: 0 }}
-          whileInView={{ scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ type: 'spring', stiffness: 300, damping: 16, delay: index * 0.08 + 0.15 }}
-        >
-          <RoughDot size={22} color="var(--ink)" fillColor="var(--red-pen)" seed={index * 17 + 3} />
-        </motion.div>
-        <span className={styles.dates}>{exp.dates}</span>
+      <div className={styles.dotWrap} aria-hidden="true">
+        <RoughDot size={22} color="var(--ink)" fillColor="var(--red-pen)" seed={index * 17 + 3} />
       </div>
 
-      <div
-        className={styles.card}
-        style={{ rotate: index % 2 === 0 ? 'var(--tilt-3)' : 'var(--tilt-2)' }}
-      >
-        <TornLayers
-          backRotate={index % 2 === 0 ? 1.4 : -1.5}
-          back={index % 2 === 0 ? 'var(--kraft)' : 'var(--kraft-dark)'}
-        />
-        <WashiTape tint={exp.tape} rotate={index % 2 === 0 ? -5 : 4} width={94} style={{ top: -13, left: '50%', marginLeft: -47 }} />
+      <div className={styles.card}>
+        <TornLayers backRotate={1} />
+        <WashiTape tint={exp.tape} rotate={-3} width={94} style={{ top: -13, left: '50%', marginLeft: -47 }} />
 
-        {isGrouped ? (
-          <>
-            <h2 className={styles.company}>{exp.company}</h2>
-            <div className={styles.roleList}>
-              {exp.roles.map((r, i) => (
-                <div key={i} className={styles.roleRow}>
-                  <div className={styles.roleRowHeader}>
-                    <span className={styles.roleTitle}>{r.title}</span>
-                    <span className={styles.team}>{r.team}</span>
-                    {r.dates && <span className={styles.roleDates}>{r.dates}</span>}
-                  </div>
-                  <p className={styles.desc}>{r.description}</p>
-                </div>
-              ))}
+        <div className={styles.titleRow}>
+          <h2 className={styles.company}>{exp.company}</h2>
+          {exp.dates && <span className={styles.dates}>{exp.dates}</span>}
+        </div>
+
+        <div className={styles.roleList}>
+          {roles.map((role) => (
+            <div key={role.title} className={styles.roleRow}>
+              <div className={styles.titleRow}>
+                <h3 className={styles.roleTitle}>{role.title}</h3>
+                {exp.roles && role.dates && <span className={styles.dates}>{role.dates}</span>}
+              </div>
+              <p className={styles.roleMeta}>{role.team}</p>
+              <p className={styles.desc}>{role.description}</p>
+              {role.project && (
+                <Link href={`/projects/${role.project.slug}`} className={styles.projectLink}>
+                  View {role.project.title} project →
+                </Link>
+              )}
             </div>
-          </>
-        ) : (
-          <>
-            <div className={styles.cardHeader}>
-              <h2 className={styles.company}>{exp.company}</h2>
-              <span className={styles.team}>{exp.team}</span>
-            </div>
-            <h3 className={styles.role}>{exp.role}</h3>
-            <p className={styles.desc}>{exp.description}</p>
-          </>
-        )}
+          ))}
+        </div>
       </div>
-    </motion.div>
+    </motion.article>
   );
 }
 
@@ -153,14 +134,6 @@ export default function ExperiencesPage() {
   return (
     <main className={styles.main}>
       <div className={styles.headerRow}>
-        <motion.span
-          className={styles.sectionLabel}
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.4 }}
-        >
-          
-        </motion.span>
         <motion.h1
           className={styles.title}
           initial={{ opacity: 0, y: 24 }}
@@ -170,14 +143,6 @@ export default function ExperiencesPage() {
           Experiences
         </motion.h1>
         <RoughUnderline double color="var(--red-pen)" className={styles.titleUnderline} delay={0.4} />
-        <motion.p
-          className={styles.subtitle}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-        >
-          
-        </motion.p>
       </div>
 
       <div className={styles.timeline}>

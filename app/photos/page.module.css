@@ -4,16 +4,9 @@
 }
 
 .headerRow {
+  padding-top: 1lh;
   max-width: 900px;
   margin: 0 auto clamp(2.5rem, 4vw, 3.5rem);
-}
-
-.sectionLabel {
-  font-family: var(--font-hand);
-  font-size: 1.4rem;
-  color: var(--blue-pen);
-  display: inline-block;
-  transform: rotate(-1.5deg);
 }
 
 .title {
@@ -75,7 +68,7 @@
 }
 
 .coverTitle {
-  font-family: var(--font-hand);
+  font-family: var(--font-body);
   font-weight: 700;
   font-size: clamp(3.4rem, 9vw, 5.4rem);
   line-height: 1;
@@ -84,7 +77,7 @@
 }
 
 .coverSubtitle {
-  font-family: var(--font-hand);
+  font-family: var(--font-body);
   font-size: 1.35rem;
   color: var(--ink-soft);
   transform: rotate(-1.5deg);
@@ -100,7 +93,7 @@
   position: absolute;
   bottom: 20px;
   left: 8%;
-  font-family: var(--font-hand);
+  font-family: var(--font-body);
   font-size: 1.2rem;
   color: var(--red-pen);
   transform: rotate(-2deg);
@@ -169,7 +162,7 @@
 .photoCaption {
   display: block;
   text-align: center;
-  font-family: var(--font-hand);
+  font-family: var(--font-body);
   font-size: 1.05rem;
   color: var(--ink-soft);
   padding: 3px 0 4px;
@@ -201,7 +194,7 @@
 }
 
 .pageIndicator {
-  font-family: var(--font-hand);
+  font-family: var(--font-body);
   font-weight: 700;
   font-size: 1.35rem;
   color: var(--ink);
@@ -304,7 +297,7 @@
   align-items: baseline;
   justify-content: center;
   gap: 14px;
-  font-family: var(--font-hand);
+  font-family: var(--font-body);
   font-size: 1.35rem;
   color: var(--ink);
   padding: 8px 0 4px;

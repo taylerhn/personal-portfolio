@@ -51,7 +51,7 @@
 
 .wordmark {
   position: relative;
-  font-family: var(--font-hand);
+  font-family: var(--font-body);
   font-weight: 700;
   font-size: 3rem;
   line-height: 1;
@@ -103,7 +103,7 @@
 
 .easterHint {
   margin-top: 8px;
-  font-family: var(--font-hand);
+  font-family: var(--font-body);
   font-size: 1.1rem;
   color: var(--red-pen);
   transform: rotate(-1.5deg);
@@ -116,7 +116,7 @@
 }
 
 .centerLabel {
-  font-family: var(--font-hand);
+  font-family: var(--font-body);
   font-weight: 700;
   font-size: 1.3rem;
   color: var(--blue-pen);
@@ -125,7 +125,7 @@
 }
 
 .footerLink {
-  font-family: var(--font-hand);
+  font-family: var(--font-body);
   font-size: 1.25rem;
   color: var(--ink-soft);
   width: fit-content;
@@ -146,7 +146,7 @@
 }
 
 .tagline {
-  font-family: var(--font-hand);
+  font-family: var(--font-body);
   font-weight: 700;
   font-size: 1.35rem;
   color: var(--ink);
@@ -165,13 +165,6 @@
 .copyright {
   font-size: 0.85rem;
   color: var(--ink-soft);
-}
-
-.builtWith {
-  font-family: var(--font-hand);
-  font-size: 1.05rem;
-  color: var(--ink-soft);
-  transform: rotate(var(--tilt-3));
 }
 
 @media (max-width: 700px) {

@@ -2,43 +2,21 @@
 
 import styles from './page.module.css';
 import Image from 'next/image';
-import { useRef, useState, useCallback, useEffect } from 'react';
-import { motion, useAnimationControls } from 'framer-motion';
+import Link from 'next/link';
+import { useRef, useState, useCallback } from 'react';
+import { motion } from 'framer-motion';
 import StickFigure from '../components/StickFigure';
 import HandwrittenText from '../components/HandwrittenText';
 import WashiTape from '../components/doodles/WashiTape';
 import TornLayers from '../components/doodles/TornLayers';
 import { RoughBox, RoughLine, RoughUnderline } from '../components/doodles/rough';
-import { ScratchOut } from '../components/doodles/Doodles';
 
 /* ─── DATA ─────────────────────────────────────────────────── */
 const polaroids = [
-  { src: '/herophoto.jpg', caption: 'the bay', rotation: -5, tape: 'yellow' },
-  { src: '/herophoto2.jpg', caption: 'build night', rotation: 4, tape: 'blue' },
-  { src: '/herophoto3.jpg', caption: 'field work', rotation: -3, tape: 'red' },
-  { src: '/herophoto.jpg', caption: 'golden hour', rotation: 5, tape: 'plain' },
-  // empty frames — swap in real photos later, same object shape with a src
-];
-
-const funFacts = [
-  {
-    text: 'Mentors first-gen students — someone did it for me, so I pay it forward.',
-    color: 'var(--sticky-yellow)',
-    pose: 'wave',
-    rotate: -2.5,
-  },
-  {
-    text: 'Self-appointed scout of every coffee shop within biking distance of campus.',
-    color: 'var(--sticky-tan)',
-    pose: 'think',
-    rotate: 1.5,
-  },
-  {
-    text: 'Has never once taken lecture notes without doodling in the margins. Exhibit A: this website.',
-    color: 'var(--sticky-blue)',
-    pose: 'point',
-    rotate: -1,
-  },
+  { src: '/home/infront_of_blackrock.png', caption: 'at BlackRock', rotation: -5, tape: 'yellow' },
+  { src: '/home/fishing_with_dad.png', caption: 'fishing with Dad', rotation: 4, tape: 'blue' },
+  { src: '/home/peer_advising.JPG', caption: 'peer advising', rotation: -3, tape: 'red' },
+  { src: '/home/sunglasses_smiling.JPG', caption: 'in shades', rotation: 5, tape: 'plain' },
 ];
 
 const skills = {
@@ -77,8 +55,7 @@ const fadeUp = {
   show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 120, damping: 20 } },
 };
 
-/** Notebook-style section heading: handwritten label + double red underline. */
-function SectionHeading({ label, title }) {
+function SectionHeading({ title }) {
   return (
     <motion.div
       className={styles.sectionHeader}
@@ -87,25 +64,10 @@ function SectionHeading({ label, title }) {
       whileInView="show"
       viewport={{ once: true }}
     >
-      <span className={styles.sectionLabel}>{label}</span>
       <h2 className={styles.sectionTitle}>{title}</h2>
       <RoughUnderline double color="var(--red-pen)" strokeWidth={2.5} />
     </motion.div>
   );
-}
-
-/** Occasional idle wiggle so the paper scraps feel restless, not static. */
-function useShake(controls) {
-  useEffect(() => {
-    const t = setTimeout(() => {
-      // x-only wiggle: animating rotate here would stomp each note's base tilt
-      controls.start({
-        x: [0, -3, 3, -2, 2, 0],
-        transition: { duration: 1, ease: 'easeInOut', repeat: Infinity, repeatDelay: 4 },
-      });
-    }, 600 + Math.random() * 1200);
-    return () => clearTimeout(t);
-  }, [controls]);
 }
 
 /* ─── POLAROID ─────────────────────────────────────────────── */
@@ -134,42 +96,16 @@ function PolaroidPhoto({ photo, zIndex, onDragStart }) {
     >
       <WashiTape tint={photo.tape} rotate={photo.rotation * -1.5} width={86} style={{ top: -12, left: '50%', marginLeft: -43 }} />
       <div className={styles.polaroidPhoto}>
-        {photo.placeholder ? (
-          <div className={styles.polaroidEmpty}>
-          </div>
-        ) : (
-          <Image
-            src={photo.src}
-            alt={photo.caption}
-            fill
-            draggable={false}
-            style={{ objectFit: 'cover', pointerEvents: 'none', userSelect: 'none' }}
-          />
-        )}
+        <Image
+          src={photo.src}
+          alt={photo.caption}
+          fill
+          sizes="156px"
+          draggable={false}
+          style={{ objectFit: 'cover', pointerEvents: 'none', userSelect: 'none' }}
+        />
       </div>
       <span className={styles.polaroidCaption}>{photo.caption}</span>
-    </motion.div>
-  );
-}
-
-/* ─── STICKY NOTE ──────────────────────────────────────────── */
-function StickyNote({ fact, index }) {
-  const controls = useAnimationControls();
-  useShake(controls);
-
-  return (
-    <motion.div
-      className={styles.stickyNote}
-      style={{ background: fact.color, rotate: fact.rotate }}
-      animate={controls}
-      initial={{ opacity: 0, scale: 0.85 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ delay: index * 0.12, type: 'spring', stiffness: 200, damping: 18 }}
-      whileHover={{ scale: 1.05, rotate: 0 }}
-    >
-      <p className={styles.stickyText}>{fact.text}</p>
-      <StickFigure pose={fact.pose} size={40} strokeWidth={5} className={styles.stickyFigure} drawIn={false} />
     </motion.div>
   );
 }
@@ -261,32 +197,12 @@ export default function Home() {
       <section className={styles.hero}>
         <div className={styles.heroGrid}>
           <div className={styles.heroText}>
-            <motion.span
-              className={styles.heyNote}
-              initial={{ opacity: 0, rotate: -6 }}
-              animate={{ opacity: 1, rotate: -3 }}
-              transition={{ delay: 0.15 }}
-            >
-              hi, my name is
-            </motion.span>
-
             <HandwrittenText text="Tayler" fontSize={112} delay={0.4} className={styles.nameLine} />
             <HandwrittenText text="Nguyen" fontSize={112} delay={1.4} className={styles.nameLine} />
 
-            <motion.p
-              className={styles.heroSub}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 2.3 }}
-            >
-              <span className="highlight">EECS @ UC Berkeley</span> — I build{' '}
-              <span className={styles.scratchWrap}>
-                homework
-                <ScratchOut width={96} className={styles.scratchLine} delay={2.7} />
-              </span>{' '}
-              software for real communities, and I draw stick figures in every margin
-              I&apos;m given.
-            </motion.p>
+            <p className={styles.heroSub}>
+              I study EECS at UC Berkeley and build web apps for communities and tools for developers.
+            </p>
 
             <motion.div
               className={styles.heroBtns}
@@ -294,12 +210,16 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 2.6 }}
             >
+              <Link href="/projects" className={`${styles.sketchBtn} ${styles.sketchBtnBlack}`}>
+                View Projects →
+                <RoughBox color="currentColor" strokeWidth={2} inset={2} />
+              </Link>
               <a href="#about" className={styles.sketchBtn}>
                 About Me ↓
                 <RoughBox color="var(--red-pen)" strokeWidth={2} inset={2} />
               </a>
               <a href="#contact" className={`${styles.sketchBtn} ${styles.sketchBtnBlue}`}>
-                Contact Me →
+                Contact Me ↓
                 <RoughBox color="var(--blue-pen)" strokeWidth={2} inset={2} />
               </a>
             </motion.div>
@@ -308,7 +228,7 @@ export default function Home() {
           <div className={styles.heroFigureCol}>
             <StickFigure pose="wave" photoSrc="/headshot.png" size={270} strokeWidth={3} />
             <div className={styles.thisIsMe}>
-              <span>Hey there :)<br />Have a good day!</span>
+              <span>Hey there :)<br />Welcome to my website!</span>
             </div>
           </div>
         </div>
@@ -319,7 +239,6 @@ export default function Home() {
           animate={{ opacity: 1 }}
           transition={{ delay: 3.2 }}
         >
-          <span>scroll!</span>
           <motion.span animate={{ y: [0, 6, 0] }} transition={{ duration: 1.4, repeat: Infinity }}>↓</motion.span>
         </motion.div>
       </section>
@@ -328,7 +247,7 @@ export default function Home() {
       <section id="about" className={styles.section}>
         <div className={styles.sectionInner}>
           <div className={styles.headingRow}>
-            <SectionHeading label="" title="About Me" />
+            <SectionHeading title="About Me" />
             <StickFigure pose="think" size={96} className={styles.headingFigure} />
           </div>
 
@@ -343,16 +262,12 @@ export default function Home() {
               <TornLayers backRotate={-1.6} />
               <RoughBox color="var(--ink)" strokeWidth={2} inset={12} drawIn />
               <p>
-                Hello! I&apos;m Tayler — a community leader and aspiring software engineer
-                studying Electrical Engineering and Computer Sciences at UC Berkeley.
+                Hey, I&apos;m Tayler! I study EECS at Berkeley. I like working on software people can use,
+                and I&apos;m curious about everything from machine learning to what it takes to keep a site running.
               </p>
               <p>
-                I believe tech is at its best when it bridges gaps and creates opportunities
-                for people who weren&apos;t handed any. When I&apos;m not building, I&apos;m
-                mentoring first-gen students, hunting down new coffee spots, or filling
-                notebook margins with little guys like the ones on this page.
+                Outside of class, I like mentoring other students, taking photos, and trying new sandwich spots.
               </p>
-              <span className={styles.aboutMarginNote}></span>
             </motion.div>
 
             <div className={styles.polaroidWall}>
@@ -366,12 +281,6 @@ export default function Home() {
               ))}
             </div>
           </div>
-
-          <div className={styles.stickyRow}>
-            {funFacts.map((fact, i) => (
-              <StickyNote key={i} fact={fact} index={i} />
-            ))}
-          </div>
         </div>
       </section>
 
@@ -382,7 +291,7 @@ export default function Home() {
       {/* ── TOOLBOX ──────────────────────────────────────── */}
       <section className={styles.section}>
         <div className={styles.sectionInner}>
-          <SectionHeading label="" title="Skills and Tools" />
+          <SectionHeading title="Skills and Tools" />
 
           <div className={styles.toolboxGrid}>
             {Object.entries(skills).map(([category, group], ci) => (
@@ -426,17 +335,7 @@ export default function Home() {
       {/* ── CONTACT ──────────────────────────────────────── */}
       <section id="contact" className={styles.section}>
         <div className={styles.sectionInner}>
-          <SectionHeading label="" title="Contact Me" />
-
-          <motion.p
-            className={styles.contactSub}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.15 }}
-          >
-            (these are draggable, by the way. go ahead, make a mess.)
-          </motion.p>
+          <SectionHeading title="Contact Me" />
 
           <div className={styles.contactStage}>
             {contacts.map((contact, i) => (
