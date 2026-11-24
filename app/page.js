@@ -44,10 +44,9 @@ const contacts = [
   { id: 'email', label: 'email', value: 'tayler@berkeley.edu', href: 'mailto:tayler@berkeley.edu', tape: 'yellow', rotate: -2 },
   { id: 'github', label: 'github', value: 'github.com/taylerhn', href: 'https://github.com/taylerhn', tape: 'plain', rotate: 1.5 },
   { id: 'linkedin', label: 'linkedin', value: 'linkedin.com/in/taylerhn', href: 'https://linkedin.com/in/taylerhn/', tape: 'blue', rotate: -3 },
-  { id: 'instagram', label: 'instagram', value: 'instagram.com/taqler', href: 'https://instagram.com/taqler', tape: 'red', rotate: 2.5 },
 ];
 
-const contactPoses = ['wave', 'present', 'point', 'think'];
+const contactPoses = ['wave', 'present', 'point'];
 
 /* ─── SHARED BITS ──────────────────────────────────────────── */
 const fadeUp = {

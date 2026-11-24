@@ -258,7 +258,7 @@
 /* ─── CONTACT ───────────────────────────────────────────────── */
 .contactStage {
   display: grid;
-  grid-template-columns: repeat(2, 254px);
+  grid-template-columns: repeat(3, minmax(0, 254px));
   gap: 34px 28px;
   justify-content: center;
   margin-top: -24px;
@@ -267,7 +267,7 @@
 
 .contactScrap {
   position: relative;
-  width: 254px;
+  min-width: 0;
   padding: 28px 22px 20px;
   display: flex;
   gap: 14px;
@@ -387,12 +387,10 @@
   .heroSub {
     font-size: 1.05rem;
   }
+}
 
+@media (max-width: 760px) {
   .contactStage {
     grid-template-columns: min(100%, 300px);
-  }
-
-  .contactScrap {
-    width: 100%;
   }
 }
